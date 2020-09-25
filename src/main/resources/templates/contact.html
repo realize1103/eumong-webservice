@@ -1,62 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<title>Contact</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<meta name="format-detection" content="telephone=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<!-- Fonts-->
-		<link rel="stylesheet" type="text/css" href="../../templates/assets/fonts/fontawesome/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="../../templates/assets/fonts/pe-icon/pe-icon.css">
-		<!-- Vendors-->
-		<link rel="stylesheet" type="text/css" href="../../templates/assets/vendors/bootstrap/grid.css">
-		<link rel="stylesheet" type="text/css" href="../../templates/assets/vendors/magnific-popup/magnific-popup.min.css">
-		<link rel="stylesheet" type="text/css" href="../../templates/assets/vendors/swiper/swiper.css">
-		<!-- App & fonts-->
-		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:400,700">
-		<link rel="stylesheet" type="text/css" id="app-stylesheet" href="../../templates/assets/css/main.css"><!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<![endif]-->
+		<div th:replace="/fragments/head.html :: fragment-head"></div>
 	</head>
 	
 	<body>
 		<div class="page-wrap" id="root">
-			
+
 			<!-- header -->
-			<header class="header header--fixed">
-				<div class="header__inner">
-					<div class="header__logo"><a href="../../templates/index.html"><img src="../../templates/assets/img/logo.png" alt="" style="width: 122px;"/></a></div>
-					<div class="navbar-toggle" id="fs-button">
-						<div class="navbar-icon"><span></span></div>
-					</div>
-				</div>
-				
-				<!-- fullscreenmenu__module -->
-				<div class="fullscreenmenu__module" trigger="#fs-button">
-					
-					<!-- overlay-menu -->
-					<nav class="overlay-menu">
-						
-						<!--  -->
-						<ul class="wil-menu-list">
-							<li><a href="../../templates/index.html">Home</a>
-							</li>
-							<li><a href="about.html">About</a>
-							</li>
-							<li><a href="work.html">Work</a>
-							</li>
-							<li><a href="blog.html">Blog</a>
-							</li>
-							<li class="current-menu-item"><a href="contact.html">Contact</a>
-							</li>
-						</ul><!--  -->
-						
-					</nav><!-- End / overlay-menu -->
-					
-				</div><!-- End / fullscreenmenu__module -->
-				
-			</header><!-- End / header -->
+			<div th:replace="/fragments/header.html :: fragment-header"></div>
+			<!-- End / header -->
 			
 			<!-- Content-->
 			<div class="wil-content">
@@ -82,20 +36,12 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-4 col-lg-3 ">
-								
-								<!-- contact -->
-								<div class="contact">
-									<div class="contact__icon"><i class="pe-7s-note"></i></div>
-									<h3 class="contact__title">address</h3>
-									<div class="contact__text">Nam suscipit nisi risus, et porttitor metus molest</div>
-								</div><!-- End / contact -->
-								
-								
+
 								<!-- contact -->
 								<div class="contact">
 									<div class="contact__icon"><i class="pe-7s-back"></i></div>
-									<h3 class="contact__title">call us</h3>
-									<div class="contact__text">+1-202-555-0177</div>
+									<h3 class="contact__title">call me</h3>
+									<div class="contact__text"><a href="tel:+491736607314">+49 173 660 7314</a></div>
 								</div><!-- End / contact -->
 								
 								
@@ -103,7 +49,7 @@
 								<div class="contact">
 									<div class="contact__icon"><i class="pe-7s-voicemail"></i></div>
 									<h3 class="contact__title">e-mail</h3>
-									<div class="contact__text"><a href="#">info@awethemes.com</a></div>
+									<div class="contact__text"><a href="mailto:kwanwoolee@gmail.com">kwanwooleedeveloper@gmail.com</a></div>
 								</div><!-- End / contact -->
 								
 							</div>
@@ -149,62 +95,11 @@
 				
 			</div>
 			<!-- End / Content-->
-			
-			<!-- footer -->
-			<div class="footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-lg-6 ">
-							<p class="footer__coppy">2018 &copy; Copyright <a href="http://awe7.com/">Awe7</a>. All rights Reserved.</p>
-						</div>
-						<div class="col-md-6 col-lg-6 ">
-							<div class="footer__social">
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="#"><i class="social-icon__icon fa fa-facebook"></i>
-								</a><!-- End / social-icon -->
-								
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="#"><i class="social-icon__icon fa fa-twitter"></i>
-								</a><!-- End / social-icon -->
-								
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="#"><i class="social-icon__icon fa fa-linkedin"></i>
-								</a><!-- End / social-icon -->
-								
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="#"><i class="social-icon__icon fa fa-behance"></i>
-								</a><!-- End / social-icon -->
-								
-								
-								<!-- social-icon -->
-								<a class="social-icon" href="#"><i class="social-icon__icon fa fa-vimeo"></i>
-								</a><!-- End / social-icon -->
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div><!-- End / footer -->
+
+			<!-- Footer -->
+			<div th:replace="/fragments/footer.html :: fragment-footer"></div>
+			<!-- End / Footer -->
 			
 		</div>
-		<!-- Vendors-->
-		<script type="text/javascript" src="../../templates/assets/vendors/jquery/jquery.min.js"></script>
-		<script type="text/javascript" src="../../templates/assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
-		<script type="text/javascript" src="../../templates/assets/vendors/isotope-layout/isotope.pkgd.js"></script>
-		<script type="text/javascript" src="../../templates/assets/vendors/jquery-one-page/jquery.nav.min.js"></script>
-		<script type="text/javascript" src="../../templates/assets/vendors/jquery.easing/jquery.easing.min.js"></script>
-		<script type="text/javascript" src="../../templates/assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
-		<script type="text/javascript" src="../../templates/assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
-		<script type="text/javascript" src="../../templates/assets/vendors/masonry-layout/masonry.pkgd.js"></script>
-		<script type="text/javascript" src="../../templates/assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
-		<script type="text/javascript" src="../../templates/assets/vendors/swiper/swiper.jquery.js"></script>
-		<script type="text/javascript" src="../../templates/assets/vendors/menu/menu.js"></script>
-		<script type="text/javascript" src="../../templates/assets/vendors/typed/typed.min.js"></script>
-		<!-- App-->
-		<script type="text/javascript" src="../../templates/assets/js/main.js"></script>
 	</body>
 </html>

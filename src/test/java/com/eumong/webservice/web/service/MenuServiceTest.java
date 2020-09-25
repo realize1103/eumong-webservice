@@ -64,6 +64,10 @@ class MenuServiceTest {
 
     @Test
     void deleteByMenuNo() {
+        long lKey = menuList.get(0).getMenuNo();
+        menuService.deleteByMenuNo(lKey);
+        List<MenuVo> expected = menuService.findAll();
+        assertThat(true).isEqualTo(expected.isEmpty());
     }
 
     @Test
@@ -75,7 +79,6 @@ class MenuServiceTest {
 
     @Test
     void save() {
-        menuService.deleteAll();
         long lKey = menuList.get(0).getMenuNo();
         Optional<MenuVo> resultMenulist = menuService.findByMenuNo(lKey);
         if (resultMenulist.isPresent()) {

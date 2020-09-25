@@ -20,7 +20,6 @@ public class MenuService {
     public List<MenuVo> findAllByDepthEqualsAndUseYnEqualsOrderByOrderNo(int depth, String useYn) {
         List<MenuVo> menus = new ArrayList<>();
         menuRepository.findAllByDepthEqualsAndUseYnEqualsOrderByOrderNo(depth,"Y").forEach(e -> menus.add(e));
-        System.out.println("menus = " + menus);
         return menus;
     }
     
@@ -56,7 +55,6 @@ public class MenuService {
     public List<MenuVo> findAll() {
         List<MenuVo> menus = new ArrayList<>();
         menuRepository.findAll().forEach(e -> menus.add(e));
-        System.out.println("menus = " + menus);
         return menus;
     }
 }
