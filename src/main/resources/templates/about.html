@@ -43,7 +43,7 @@
 								<div class="mt-30">
 									<h2 class="about__title">Kwanwoo Lee</h2>
 									<p class="about__subtitle" th:text="${boardVo.getTitle()}"></p>
-									<p class="about__text" th:content="${boardVo.getContent()}">Maecenas lorem ex, euismod eget pulvinar non, facilisis ut leo. Quisque placerat purus in neque efficitur ornare. Nam at justo magna. Aliquam venenatis odio ante, non euismod augue porttitor eget. Maecenas nec viverra eros, eget euismod felis. Integer cursus libero sed lorem euismod, vel iaculis felis placerat. Pellentesque augue lacus, sodales et eros sed, molestie rhoncus ligula. Vivamus sed massa lorem. Suspendisse mollis lectus nec ex fermentum, in consectetur dolor egestas. Phasellus quis ipsum quis nisl ultricies sollicitudin id in dolor. Proin at consequat dui.</p>
+									<p class="about__text" th:text="${boardVo.getContent()}"></p>
 									
 									<!-- progress -->
 									<div class="progress">
@@ -78,6 +78,40 @@
 					</div>
 				</section>
 				<!-- End / Section -->
+				<section class="awe-section bg-gray">
+					<div class="container">
+						<div id="hd">
+							<div class="col-xs-12 col-md-8">
+								<h1 class="about__title" th:text="${adminInfo.getUserName()}"></h1>
+								<p class="about__subtitle">Web Designer, Director</p>
+							</div>
+							<div class="col-xs-6 col-md-4">
+								<p><a id="pdf" href="#">Download PDF</a></p>
+								<p><a href="mailto:name@yourdomain.com">name@yourdomain.com</a></p>
+								<p>(313) - 867-5309</p>
+							</div>
+						</div><!--// hd -->
+						<div id="bd">
+							<div class="col-xs-12 col-md-2">
+								<p class="about__subtitle">Skills</p>
+							</div>
+							<div class="col-xs-12 col-md-3">
+								<p>Web Design</p>
+								<p>Assertively exploit wireless initiatives rather than synergistic core competencies.	</p>
+							</div>
+
+							<div class="col-xs-12 col-md-3">
+								<p>Interface Design</p>
+								<p>Credibly streamline mission-critical value with multifunctional functionalities.	 </p>
+							</div>
+
+							<div class="col-xs-12 col-md-4">
+								<p>Project Direction</p>
+								<p>Proven ability to lead and manage a wide variety of design and development projects in team and independent situations.</p>
+							</div>
+						</div>
+					</div>
+				</section>
 				
 			</div>
 			<!-- End / Content-->

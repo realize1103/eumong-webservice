@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,7 +38,7 @@ class MenuServiceTest {
         menuService.deleteAll();
         menuService.save(new MenuVo(testMenuName,testLandingPage,testDepth,testOrderNo,testUseYn));
         menuList = new ArrayList<>();
-        menuService.findAllByDepthEqualsAndUseYnEqualsOrderByOrderNo(0,"Y").forEach(e -> menuList.add(e));
+        menuService.findAllByDepthEqualsAndUseYnEqualsOrderByOrderNo(0,"Y" ).forEach(e -> menuList.add(e));
     }
 
     @Test

@@ -6,7 +6,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 col-lg-6 ">
-						<p class="footer__coppy">2020 &copy; Copyright <a href="http://awe7.com/">Awe7</a>. All rights Reserved.</p>
+						<p class="footer__coppy">2018 &copy; Copyright <a href="http://awe7.com/">Awe7</a>. All rights Reserved.</p>
 					</div>
 					<div class="col-md-6 col-lg-6 ">
 						<div class="footer__social">
@@ -22,11 +22,13 @@
 
 
 							<!-- social-icon -->
-							<a class="social-icon" href="https://www.linkedin.com/in/kwanwooleeprofile/?locale=en_US"><i class="social-icon__icon fa fa-linkedin"></i>
+							<a class="social-icon" th:href="${adminInfo.getLinkedIn()}"><i class="social-icon__icon fa fa-linkedin"></i>
 							</a><!-- End / social-icon -->
-
 							<!-- social-icon-->
-							<a class="social-icon" href="https://github.com/realize1103"><i class="social-icon__icon fa fa-github"></i>
+							<a class="social-icon" th:href="${adminInfo.getGitHubUrl()}"><i class="social-icon__icon fa fa-github"></i>
+							</a><!-- End / social-icon -->
+							<!-- social-icon-->
+							<a class="social-icon" th:href="'skype:' + ${adminInfo.getSkypeId()}+'?userinfo'"><i class="social-icon__icon fa fa-skype"></i>
 							</a><!-- End / social-icon -->
 
 							<!-- social-icon
@@ -58,6 +60,8 @@
 		<script type="text/javascript" src="assets/vendors/typed/typed.min.js"></script>
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
+
+
 
 	</footer>
 </html>

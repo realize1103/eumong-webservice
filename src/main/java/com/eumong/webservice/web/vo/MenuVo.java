@@ -35,4 +35,5 @@ public class MenuVo {
         this.useYn = useYn;
 
     }
+
 }

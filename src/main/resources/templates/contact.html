@@ -39,17 +39,23 @@
 
 								<!-- contact -->
 								<div class="contact">
-									<div class="contact__icon"><i class="pe-7s-back"></i></div>
+									<div class="contact__icon"><i class="pe-7s-call"></i></div>
 									<h3 class="contact__title">call me</h3>
-									<div class="contact__text"><a href="tel:+491736607314">+49 173 660 7314</a></div>
+									<div class="contact__text"><a th:href="'tel:' + ${#strings.replace(adminInfo.getCellPhone(),' ',' ')}" th:text="${adminInfo.getCellPhone()}"></a></div>
 								</div><!-- End / contact -->
 								
 								
 								<!-- contact -->
 								<div class="contact">
-									<div class="contact__icon"><i class="pe-7s-voicemail"></i></div>
+									<div class="contact__icon"><i class="pe-7s-mail"></i></div>
 									<h3 class="contact__title">e-mail</h3>
-									<div class="contact__text"><a href="mailto:kwanwoolee@gmail.com">kwanwooleedeveloper@gmail.com</a></div>
+									<div class="contact__text"><a th:href="'mailto:' + ${adminInfo.getEmail()}" th:text="${adminInfo.getEmail()}"></a> </div>
+								</div><!-- End / contact -->
+								<!-- contact -->
+								<div class="contact">
+									<div class="contact__icon"><i class="pe-7s-users"></i></div>
+									<h3 class="contact__title">e-mail</h3>
+									<div class="contact__text"><a th:href="'skype:' + ${adminInfo.getSkypeId()}+'?userinfo'" th:text="'live:'+${adminInfo.getSkypeId()}"></a> </div>
 								</div><!-- End / contact -->
 								
 							</div>
@@ -78,14 +84,19 @@
 									<div class="form-item">
 										<textarea class="form-control" placeholder="Your message" style="min-height:200px;"></textarea>
 									</div><!-- End / form-item -->
-									
-									
+
+
+									<!-- form-item
+									<div id="editor">
+										<p>Your message</p>
+									</div>
+									-->
 									<!-- form-item -->
 									<div class="form-item">
 										<a class="md-btn md-btn--primary md-btn--lg " href="#">Send message
 										</a>
 									</div><!-- End / form-item -->
-									
+
 								</div>
 							</div>
 						</div>
@@ -98,8 +109,9 @@
 
 			<!-- Footer -->
 			<div th:replace="/fragments/footer.html :: fragment-footer"></div>
+			<!-- <script src="https://cdn.ckeditor.com/ckeditor5/22.0.0/classic/ckeditor.js"></script>
+			<script type="text/javascript" src="assets/js/editor.js"></script> -->
 			<!-- End / Footer -->
-			
 		</div>
 	</body>
 </html>

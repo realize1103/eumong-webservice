@@ -1,10 +1,9 @@
 package com.eumong.webservice.web.controller;
 
-import com.eumong.webservice.web.Utility;
-import com.eumong.webservice.web.service.BoardService;
+import com.eumong.webservice.web.util.Utility;
 import com.eumong.webservice.web.service.BoardService;
 import com.eumong.webservice.web.vo.BoardVo;
-import com.eumong.webservice.web.vo.BoardVo;
+import com.google.gson.Gson;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -16,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -29,6 +29,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.BDDAssertions.then;
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
@@ -122,12 +123,19 @@ class BoardControllerTest {
         log.info("******** START : MOC MVC test **********");
         deleteAll();
         save();
-        boardService = new BoardService();
-        boardService.findAll();
-        /*
-        List<BoardVo> boardVoList =
-        if (!boardVoList.isEmpty()) {
-            BoardVo boardVo = boardVoList.get(0);
+
+        Gson gson = new Gson();
+
+        MvcResult a = mvc.perform(get("/board").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().contentType("application/json"))
+                .andExpect(jsonPath("$", hasSize(1))).andDo(print()).andReturn();
+
+        BoardVo[] returnListVos = gson.fromJson(a.getResponse().getContentAsString(),BoardVo[].class);
+        assertThat(testTitle).isEqualTo(returnListVos[0].getTitle());
+
+
+        if (returnListVos.length > 0) {
+            BoardVo boardVo = returnListVos[0];
             long lKey = boardVo.getBoardNo();
 
             mvc.perform(get("/board/".concat(String.valueOf(lKey))).accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -135,7 +143,7 @@ class BoardControllerTest {
                     .andExpect(MockMvcResultMatchers.jsonPath("$.contType").value(testContType)).andDo(print());
             log.info("******** END : MOC MVC test **********");
 
-        }*/
+        }
     }
 
 
@@ -147,11 +155,20 @@ class BoardControllerTest {
         save();
 
         log.info("******** START : MockBean test **********");
-        List<BoardVo> boardVoList = boardService.findAll();
-        if (!boardVoList.isEmpty()) {
-            BoardVo boardVo = boardVoList.get(0);
-            boardVo.setUseYn("N");
+        Gson gson = new Gson();
+
+        MvcResult a = mvc.perform(get("/board").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().contentType("application/json"))
+                .andExpect(jsonPath("$", hasSize(1))).andDo(print()).andReturn();
+
+        BoardVo[] returnListVos = gson.fromJson(a.getResponse().getContentAsString(),BoardVo[].class);
+        assertThat(testTitle).isEqualTo(returnListVos[0].getTitle());
+
+
+        if (returnListVos.length > 0) {
+            BoardVo boardVo = returnListVos[0];
             long lKey = boardVo.getBoardNo();
+            boardVo.setUseYn("N");
             mvc.perform(MockMvcRequestBuilders.put("/board/".concat(String.valueOf(lKey)))
                 .content(Utility.asJsonString(boardVo))
                 //.param("returnYn","Y")

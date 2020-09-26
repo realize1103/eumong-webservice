@@ -30,4 +30,6 @@ Email : *[kwanwooleeDeveloper@gmail.com](mailto:kwanwooleeDeveloper@gmail.com)*
 ###Change Log
 Settle in environment
 Main page development completed
-About me page development completed
+About me page 50% development 
+Contact page 50% development 
+Admin grant 50% development 
