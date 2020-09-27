@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +16,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.BDDAssertions.then;
 
 @SpringBootTest(
-        properties = {"testMenuName=testName", "testLandingPage=index", "testDepth=0", "testOrderNo=0","testUseYn=Y"} //classes = {TestJpaRestController.class, MemberService.class},
+        properties = {"testMenuName=testName", "testLandingPage=index", "testDepth=0", "testOrderNo=0", "testUseYn=Y"} //classes = {TestJpaRestController.class, MemberService.class},
 )
-class MenuServiceTest {
+@Transactional
+public class MenuServiceTest {
     @Autowired
     private MenuService menuService;
     @Value("${testMenuName}")

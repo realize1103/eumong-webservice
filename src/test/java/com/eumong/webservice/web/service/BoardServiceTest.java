@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -23,6 +24,7 @@ import static org.assertj.core.api.BDDAssertions.then;
         properties = {"testContType=about", "testTitle=textTitle", "testContent=content", "testImgUrl=/skkdfll","testUseYn=Y"} //classes = {TestJpaRestController.class, MemberService.class},
 )
 
+@Transactional
 class BoardServiceTest {
     @Autowired
     private BoardService boardService;

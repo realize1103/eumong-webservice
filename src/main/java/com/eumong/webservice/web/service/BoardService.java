@@ -3,6 +3,8 @@ package com.eumong.webservice.web.service;
 
 import com.eumong.webservice.web.repository.BoardRepository;
 import com.eumong.webservice.web.vo.BoardVo;
+import com.eumong.webservice.web.vo.ResumeVo;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +22,11 @@ public class BoardService {
     public List<BoardVo> findByContTypeOrderByRegDateDesc(String contType) {
         List<BoardVo> boards = new ArrayList<>();
         boardRepository.findByContTypeOrderByRegDateDesc(contType).forEach(e -> boards.add(e));
+
+
+        for(BoardVo boardVo : boards){
+            boardVo.setContent(StringEscapeUtils.unescapeHtml4(boardVo.getContent()));
+        }
         return boards;
     }
     

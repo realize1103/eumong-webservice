@@ -4,9 +4,11 @@ package com.eumong.webservice.web.controller;
 import com.eumong.webservice.web.service.BoardService;
 import com.eumong.webservice.web.service.MemberService;
 import com.eumong.webservice.web.service.MenuService;
+import com.eumong.webservice.web.service.ResumeService;
 import com.eumong.webservice.web.vo.BoardVo;
 import com.eumong.webservice.web.vo.MemberVo;
 import com.eumong.webservice.web.vo.MenuVo;
+import com.eumong.webservice.web.vo.ResumeVo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,7 @@ public class WebController {
     private MenuService menuService;
     private BoardService boardService;
     private MemberService memberService;
+    private ResumeService resumeService;
 
 
     @GetMapping("/")
@@ -48,10 +51,15 @@ public class WebController {
         MemberVo adminInfo = memberService.getAdminInfo(request);
         List<MenuVo> menus = menuService.findAllByDepthEqualsAndUseYnEqualsOrderByOrderNo(0, "Y", request);
         List<BoardVo> boardVos = boardService.findByContTypeOrderByRegDateDesc("about");
-
+        List<ResumeVo> resumeVos = resumeService.findAllByUseYn("Y");
+        String a = "<p>WorkVisa (I'll get it soon.)</p>";
         model.addAttribute("menus", menus);
         model.addAttribute("boardVo", boardVos.get(0));
+        model.addAttribute("resumeVos", resumeVos);
         model.addAttribute("adminInfo", adminInfo);
+        model.addAttribute("a", a);
+
+        model.addAttribute("post", new ResumeVo("section", "content", resumeVos.size(), "Y"));
         return "about";
     }
 
