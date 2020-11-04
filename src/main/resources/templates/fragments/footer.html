@@ -22,10 +22,10 @@
 
 
 							<!-- social-icon -->
-							<a class="social-icon" th:href="${adminInfo.getLinkedIn()}"><i class="social-icon__icon fa fa-linkedin"></i>
+							<a class="social-icon" th:href="${'https://'+adminInfo.getLinkedIn()+'/?locale=en_US'}"><i class="social-icon__icon fa fa-linkedin"></i>
 							</a><!-- End / social-icon -->
 							<!-- social-icon-->
-							<a class="social-icon" th:href="${adminInfo.getGitHubUrl()}"><i class="social-icon__icon fa fa-github"></i>
+							<a class="social-icon" th:href="${'https://'+adminInfo.getGitHubUrl()}"><i class="social-icon__icon fa fa-github"></i>
 							</a><!-- End / social-icon -->
 							<!-- social-icon-->
 							<a class="social-icon" th:href="'skype:' + ${adminInfo.getSkypeId()}+'?userinfo'"><i class="social-icon__icon fa fa-skype"></i>

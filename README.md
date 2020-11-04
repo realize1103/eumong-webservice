@@ -9,8 +9,10 @@ SpringBoot
 Java 8  
 Gradle  
 Db : MariaDB  
-TDD : Junit5
-templates : Thymele
+TDD : Junit5  
+templates : Thymeleaf
+
+Server : ubuntu 20.4 minimal
 ###Prerequisites and Installation Process
 - Install MariaDB
 
@@ -21,6 +23,23 @@ templates : Thymele
     mysql.server status # Check status  
     mysql.server stop   # Stop DB  
     mysql.server start  # Start DB   
+
+How to access to server  
+ssh -i key_name ubuntu@ip
+
+- update apt-get  
+sudo apt-get update  
+sudo apt-get upgrade  
+- install git  
+sudo apt-get install git  
+- install java  
+sudo apt-get install openjdk-8-jdk  
+
+Git clone  
+mkdir app  
+mkdir app/git  
+cd ~/app/git  
+git clone https://github.com/project address.git  
      
 ###Contact Information
 Email : *[kwanwooleeDeveloper@gmail.com](mailto:kwanwooleeDeveloper@gmail.com)*

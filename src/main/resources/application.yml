@@ -20,7 +20,7 @@ spring:
     url: jdbc:log4jdbc:mariadb://localhost:3306/db_eumong?characterEncoding=UTF-8&serverTimezone=UTC
     hikari:
       username: root
-      password: gogo1103
+      password: gogo1103!@
 
   hikari: #Hikari 설정
     maximum-pool-size: 10 #connection-test-query: SELECT 1
