@@ -69,7 +69,7 @@ class WebControllerTest {
         String body = this.restTemplate.getForObject("/", String.class);
 
         //then
-        assertThat(body).contains("Hello, my name is");
+        assertThat(body).contains("Hello, my.getName() is");
         log.info("main Test End");
 
     }
