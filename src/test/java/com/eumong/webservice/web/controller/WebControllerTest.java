@@ -2,6 +2,7 @@ package com.eumong.webservice.web.controller;
 
 import com.eumong.webservice.web.service.MenuService;
 import com.eumong.webservice.web.vo.MenuVo;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -62,7 +63,7 @@ class WebControllerTest {
 
     }
 
-    @Test
+    @Ignore//@Test
     void main() throws Exception {
         log.info("main Test Start");
 

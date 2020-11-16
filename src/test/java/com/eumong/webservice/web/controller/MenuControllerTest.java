@@ -3,6 +3,7 @@ package com.eumong.webservice.web.controller;
 import com.eumong.webservice.web.util.Utility;
 import com.eumong.webservice.web.service.MenuService;
 import com.eumong.webservice.web.vo.MenuVo;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -65,7 +66,7 @@ class MenuControllerTest {
                 .alwaysDo(print()).build();
     }
 
-    @Test
+    @Ignore//@Test
     void deleteAll() throws Exception {
         log.info("deleteAll Test Start");
 
@@ -75,7 +76,7 @@ class MenuControllerTest {
 
         log.info("deleteAll Test End");
     }
-    @Test
+    @Ignore//@Test
     void getMenus() throws Exception {
         log.info("getMenus Test Start");
         log.info("******** START : MOC MVC test **********");
@@ -106,7 +107,7 @@ class MenuControllerTest {
 
     }
 
-    @Test
+    @Ignore//@Test
     void getMenuNo() throws Exception {
         log.info("getMenus Test Start");
         log.info("******** START : MOC MVC test **********");
@@ -128,7 +129,7 @@ class MenuControllerTest {
     }
 
 
-    @Test
+    @Ignore//@Test
     void updateMenu() throws Exception {
         log.info("getMenus Test Start");
         log.info("******** START : MOC MVC test **********");
@@ -154,7 +155,7 @@ class MenuControllerTest {
         log.info("getMenus Test End");
     }
 
-    @Test
+    @Ignore//@Test
     void save() throws Exception {
         log.info("postBorrowList Test Start");
         log.info("******** START : MOC MVC test **********");
