@@ -2,7 +2,6 @@ package com.eumong.webservice.web.service;
 
 import com.eumong.webservice.web.vo.BoardVo;
 import com.eumong.webservice.web.vo.ResumeVo;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,15 +56,14 @@ class ResumeServiceTest {
     @Value("${testUseYn}")
     private String testUseYn;
 
-    //@Test
-    @Ignore
+    @Test
     void findAllByUseYn() {
         List<ResumeVo> resumeVos = resumeService.findAllByUseYn("Y");
         assertThat(resumeVos).isNotNull();
     }
-
-    @Ignore
+    @Test
     void save() {
+
         assertThat(testSection).isEqualTo(resumeService.save(new ResumeVo(testSection,testContent,testOrderNo,testUseYn)).getSection());
     }
 }
