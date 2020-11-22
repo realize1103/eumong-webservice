@@ -1,7 +1,6 @@
 package com.eumong.webservice.web.service;
 
 import com.eumong.webservice.web.vo.MenuVo;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +35,7 @@ public class MenuServiceTest {
 
     private List<MenuVo> menuList;
 
-    @Ignore//@BeforeEach
+    @BeforeEach
     void setup() throws Exception {
         menuService.deleteAll();
         menuService.save(new MenuVo(testMenuName,testLandingPage,testDepth,testOrderNo,testUseYn));
@@ -44,7 +43,7 @@ public class MenuServiceTest {
         menuService.findAllByDepthEqualsAndUseYnEqualsOrderByOrderNo(0,"Y" ).forEach(e -> menuList.add(e));
     }
 
-    @Ignore//@Test
+    @Test
     void findAllByDepthEqualsAndUseYnEqualsOrderByOrderNo() {
         long lKey = menuList.get(0).getMenuNo();
         Optional<MenuVo> resultMenulist = menuService.findByMenuNo(lKey);
@@ -54,7 +53,7 @@ public class MenuServiceTest {
         }
     }
 
-    @Ignore//@Test
+    @Test
     void findByMenuNo() {
         long lKey = menuList.get(0).getMenuNo();
         Optional<MenuVo> resultMenulist = menuService.findByMenuNo(lKey);
@@ -64,7 +63,7 @@ public class MenuServiceTest {
         }
     }
 
-    @Ignore//@Test
+    @Test
     void deleteByMenuNo() {
         long lKey = menuList.get(0).getMenuNo();
         menuService.deleteByMenuNo(lKey);
@@ -72,14 +71,14 @@ public class MenuServiceTest {
         assertThat(true).isEqualTo(expected.isEmpty());
     }
 
-    @Ignore//@Test
+    @Test
     void deleteAll() {
         menuService.deleteAll();
         List<MenuVo> expected = menuService.findAll();
         assertThat(true).isEqualTo(expected.isEmpty());
     }
 
-    @Ignore//@Test
+    @Test
     void save() {
         long lKey = menuList.get(0).getMenuNo();
         Optional<MenuVo> resultMenulist = menuService.findByMenuNo(lKey);
@@ -89,7 +88,7 @@ public class MenuServiceTest {
         }
     }
 
-    @Ignore//@Test
+    @Test
     void updateByMenuNo() {
         MenuVo expected = menuList.get(0);
         expected.setUseYn("N");
